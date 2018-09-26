@@ -24,7 +24,7 @@ function getCookie(cname) {
 function checkCookie(isIndex) {
     var user = getCookie("username");
 	if (user != "") {
-		return;
+		return 0;
 	} else {
 		if (isIndex == 1) {
 			location.href="pages/login.html";
@@ -32,6 +32,7 @@ function checkCookie(isIndex) {
 			location.href="../pages/login.html";
 		}
 	}
+	return 1;
     /*if (user != "") {
         alert("Welcome again " + user);
     } else {
