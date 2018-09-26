@@ -3,7 +3,6 @@ function setCookie(cname, cvalue, exdays) {
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
     var expires = "expires="+d.toUTCString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-	location.href="../index.html";
 }
 
 function getCookie(cname) {
@@ -31,6 +30,25 @@ function checkCookie(isIndex) {
 		} else {
 			location.href="../pages/login.html";
 		}
+	}
+	return 1;
+    /*if (user != "") {
+        alert("Welcome again " + user);
+    } else {
+        user = prompt("Please enter your name:", "");
+        if (user != "" && user != null) {
+            setCookie("username", user, 365);
+        }
+    }*/
+}
+
+
+function checkLoginCookie() {
+    var user = getCookie("username");
+	if (user != "") {
+		location.href="../index.html";
+	} else {
+		return 0;
 	}
 	return 1;
     /*if (user != "") {
