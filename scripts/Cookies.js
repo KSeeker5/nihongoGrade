@@ -24,7 +24,7 @@ function getCookie(cname) {
 function checkCookie(isIndex) {
     var user = getCookie("username");
 	if (user != "") {
-		// Do Nothing
+		return;
 	} else {
 		if (isIndex == 1) {
 			location.href="pages/login.html";
