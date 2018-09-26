@@ -1,0 +1,81 @@
+body
+{
+	background:#0744A0; /* For browsers that do not support gradients */
+	background:-webkit-linear-gradient(to bottom, #3a0140, #090979, #00D4FF);
+	background:-o-linear-gradient(to bottom, #3a0140, #090979, #00D4FF);
+	background:-moz-linear-gradient(to bottom, #3a0140, #090979, #00D4FF);
+	background:linear-gradient(to bottom, #3a0140, #090979, #00D4FF);
+	background-repeat:no-repeat;
+	background-size:100% 100%;
+	font-family:Kosugi Maru, Arial, sans-serif;
+	color:white;
+	text-shadow:1px 1px 2px #000000, 0px 0px 2px #000000;
+	margin:0px 0px 0px 0px;
+	max-width:100%;
+	overflow-x:hidden;
+}
+
+p
+{
+	font-size:3vw;
+}
+
+h1
+{
+	font-size:5vw;
+}
+
+h2
+{
+	font-size:4vw;
+}
+
+a
+{
+	text-decoration:none;
+	font-size:3vw;
+}
+
+div
+{
+	text-align:center;
+}
+
+section
+{
+	margin:2.5% 2.5% 2.5% 2.5%;
+	width:100vw;
+	height:100vh;
+}
+
+@media only screen and (min-width: 638px)
+{
+	p, a
+	{
+		font-size:2.5vw;
+	}
+}
+
+@media only screen and (min-width: 875px)
+{
+	p, a
+	{
+		font-size:2.5vw;
+	}
+}
+
+@media only screen and (min-width: 1050px)
+{
+	p, a
+	{
+		font-size:2vw;
+	}
+}
+
+@media only screen and (min-width: 1450px)
+{
+	p, a
+	{
+		font-size:2vw;
+	}
+}
