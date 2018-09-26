@@ -47,7 +47,7 @@
 		var pass = document.getElementById('password').value;
 		for (var i=0; i<usersArr.length; i=i+1) {
 			if ((user == usersArr[i]) && (pass == idArr[i])) {
-				setCookie('username', document.getElementById('username').value, 365);
+				setCookie('username', document.getElementById('username').value, 7);
 			}
 		}
 		if (checkCookie(0) == 0)
