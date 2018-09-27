@@ -26,7 +26,7 @@
 		<h1 id="name">日本語Grade - Grades</h1>
 		<hr/>
 		<br/><br/>
-		<h2>Grades for <span id="studentName"></span></h2>
+		<h2>Grades for <span id="studentName" onChange="stopFetching()"></span></h2>
 		<p>Overall Grade: <span id="overallGrade"></span>%</p>
 		<hr style="margin-right:7vw"/>
 		<p>Participation: <span id="participationGrade"></span>%</p>
@@ -62,7 +62,7 @@
  <script>
 	function populatePage()
 	{
-		checkCookie(0);
+		//checkCookie(0);
 		var script = document.createElement("script");
 		script.type = "text/javascript";
 		script.src = "../userdata/" + getCookie("username") + ".js";
@@ -72,6 +72,8 @@
 		document.getElementById("studentName").innerHTML = name;
 		setTimeout(fillInfo, 500);
 	}
+	
+	var fetchData = true;
 	
 	function fillInfo()
 	{
@@ -177,5 +179,15 @@
 		}
 		// Next, calculate overall grade
 		document.getElementById("overallGrade").innerHTML = ((document.getElementById("participationGrade").innerHTML * participationWeight) + (document.getElementById("homeworkGrade").innerHTML * homeworkWeight) + (document.getElementById("quizGrade").innerHTML * quizWeight) + (document.getElementById("testGrade").innerHTML * testWeight) + (document.getElementById("examGrade").innerHTML * examWeight)).toFixed(2);
+		if (fetchData)
+		{
+			setTimeout(getInfo, 500);
+		}
+	}
+	
+	
+	function stopFetching()
+	{
+		fetchData = false;
 	}
  </script>
