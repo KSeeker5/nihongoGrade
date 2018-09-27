@@ -19,9 +19,10 @@
  <script src="scripts/Cookies.js"></script>
 
  </head>
- <body onLoad="checkCookie(1)">
+ <body onLoad="verifyLogin()">
 	<section>
 		<h1 id="name">日本語Grade - Dashboard</h1>
+		<p class="small">Logged in as: <span id="loggedIn" onChange="stopFetching()"></span>&nbsp;&nbsp;<a class="small" href="#" onClick="setCookie('username', '', 1);">Log Out</a></p>
 		<hr/>
 		<br/><br/>
 		<p href="pages/grades.html" onClick="location.href='pages/grades.html'">View Grades</p>
@@ -36,3 +37,23 @@
 	<p style="text-align:center">&copy; Alex Knipper - 日本語Grade</p>
  </body>
  </html>
+ 
+ <script>
+	var fetchData = true;
+	var loginDisplay = document.getElementById("loggedIn");
+ 
+	function verifyLogin()
+	{
+		checkCookie(1);
+		loginDisplay = getCookie("username");
+		if (fetchData)
+		{
+			setTimeout(verifyLogin, 500);
+		}
+	}
+	
+	function stopFetching()
+	{
+		fetchData = false;
+	}
+ </script>
