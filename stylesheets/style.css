@@ -20,7 +20,7 @@ p
 	font-size:3vw;
 }
 
-p.small, td
+.small, td
 {
 	font-size:2.5vw;
 }
@@ -39,6 +39,18 @@ a
 {
 	text-decoration:none;
 	font-size:3vw;
+}
+
+a:link, a:visited
+{
+	color:#FF0000;
+	opacity:.75;
+}
+
+a:hover
+{
+	color:#FF00FF;
+	opacity:1;
 }
 
 div
@@ -60,7 +72,7 @@ section
 		font-size:2.5vw;
 	}
 
-	p.small, td
+	.small, td
 	{
 		font-size:2vw;
 	}
@@ -73,7 +85,7 @@ section
 		font-size:2.5vw;
 	}
 
-	p.small, td
+	.small, td
 	{
 		font-size:2vw;
 	}
@@ -86,7 +98,7 @@ section
 		font-size:2vw;
 	}
 
-	p.small, td
+	.small, td
 	{
 		font-size:1.5vw;
 	}
@@ -99,7 +111,7 @@ section
 		font-size:2vw;
 	}
 
-	p.small, td
+	.small, td
 	{
 		font-size:1.5vw;
 	}
