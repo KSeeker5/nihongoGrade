@@ -45,7 +45,7 @@
 	function verifyLogin()
 	{
 		checkCookie(1);
-		loginDisplay = getCookie("username");
+		loginDisplay.innerHTML = getCookie("username");
 		if (fetchData)
 		{
 			setTimeout(verifyLogin, 500);
