@@ -30,24 +30,24 @@
 		<p>Overall Grade: <span id="overallGrade"></span>%</p>
 		<hr style="margin-right:7vw"/>
 		<p>Participation: <span id="participationGrade"></span>%</p>
-		<table id="participation"></table>
 		<hr style="margin-right:40vw"/>
+		<table id="participation"></table>
 		<hr style="margin-right:7vw"/>
 		<p>Homework: <span id="homeworkGrade"></span>%</p>
-		<table id="homework"></table>
 		<hr style="margin-right:40vw"/>
+		<table id="homework"></table>
 		<hr style="margin-right:7vw"/>
 		<p>Quizzes: <span id="quizGrade"></span>%</p>
-		<table id="quizzes"></table>
 		<hr style="margin-right:40vw"/>
+		<table id="quizzes"></table>
 		<hr style="margin-right:7vw"/>
 		<p>Tests: <span id="testGrade"></span>%</p>
-		<table id="tests"></table>
 		<hr style="margin-right:40vw"/>
+		<table id="tests"></table>
 		<hr style="margin-right:7vw"/>
 		<p>Exams: <span id="examGrade"></span>%</p>
-		<table id="exams"></table>
 		<hr style="margin-right:40vw"/>
+		<table id="exams"></table>
 		<hr style="margin-right:7vw"/>
 		<br/><br/>
 	</section>
@@ -181,7 +181,7 @@
 		document.getElementById("overallGrade").innerHTML = ((document.getElementById("participationGrade").innerHTML * participationWeight) + (document.getElementById("homeworkGrade").innerHTML * homeworkWeight) + (document.getElementById("quizGrade").innerHTML * quizWeight) + (document.getElementById("testGrade").innerHTML * testWeight) + (document.getElementById("examGrade").innerHTML * examWeight)).toFixed(2);
 		if (fetchData)
 		{
-			setTimeout(getInfo, 500);
+			setTimeout(fillInfo, 500);
 		}
 	}
 	
