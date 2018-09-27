@@ -15,17 +15,167 @@
  <link rel="stylesheet" type="text/css" href="../stylesheets/style.css"/>
  
  <link href="https://fonts.googleapis.com/css?family=Kosugi+Maru" rel="stylesheet">
+ 
+ <script src="../scripts/Cookies.js"></script>
+ 
+ <script src="../userdata/max_scores.js"></script>
 
  </head>
- <body>
-	<section>
+ <body onLoad="populatePage()">
+	<section style="height:100%;min-height:100vh;">
 		<h1 id="name">日本語Grade - Grades</h1>
 		<hr/>
 		<br/><br/>
-		<p>hi</p>
+		<h2>Grades for <span id="studentName"></span></h2>
+		<p>Overall Grade: <span id="overallGrade"></span>%</p>
+		<hr style="margin-right:7vw"/>
+		<p>Participation: <span id="participationGrade"></span>%</p>
+		<table id="participation"></table>
+		<hr style="margin-right:40vw"/>
+		<hr style="margin-right:7vw"/>
+		<p>Homework: <span id="homeworkGrade"></span>%</p>
+		<table id="homework"></table>
+		<hr style="margin-right:40vw"/>
+		<hr style="margin-right:7vw"/>
+		<p>Quizzes: <span id="quizGrade"></span>%</p>
+		<table id="quizzes"></table>
+		<hr style="margin-right:40vw"/>
+		<hr style="margin-right:7vw"/>
+		<p>Tests: <span id="testGrade"></span>%</p>
+		<table id="tests"></table>
+		<hr style="margin-right:40vw"/>
+		<hr style="margin-right:7vw"/>
+		<p>Exams: <span id="examGrade"></span>%</p>
+		<table id="exams"></table>
+		<hr style="margin-right:40vw"/>
+		<hr style="margin-right:7vw"/>
+		<br/><br/>
 	</section>
 	<br/>
 	<hr/>
 	<p style="text-align:center">&copy; Alex Knipper - 日本語Grade</p>
+	<span id="userScript" onChange="fillInfo()"></span>
  </body>
  </html>
+ 
+ 
+ <script>
+	function populatePage()
+	{
+		//checkCookie(0);
+		var script = document.createElement("script");
+		script.type = "text/javascript";
+		script.src = "../userdata/" + getCookie("username") + ".js";
+		script.innerHTML = null;
+		document.getElementById("userScript").innerHTML = "";
+		document.getElementById("userScript").appendChild(script);
+		document.getElementById("studentName").innerHTML = name;
+		setTimeout(fillInfo, 500);
+	}
+	
+	function fillInfo()
+	{
+		// Now, populate participation grade
+		var tempString = "";
+		var pointsEarned = 0;
+		var totalPoints = 0;
+		for (var i=0; i<participationNames.length; i++)
+		{
+			tempString = tempString + "<tr><td>" + participationNames[i] + "</td><td style='width:5%'></td><td>" + participationGrades[i] + "/" + participationMax[i] + "</td></tr>";
+			pointsEarned = pointsEarned + participationGrades[i];
+			totalPoints = totalPoints + participationMax[i];
+		}
+		
+		if (participationNames.length == 0)
+		{
+			document.getElementById("participationGrade").innerHTML = (100).toFixed(2);
+		}
+		else
+		{
+			document.getElementById("participation").innerHTML = tempString;
+			document.getElementById("participationGrade").innerHTML = ((pointsEarned / totalPoints) * 100).toFixed(2);
+		}
+		// Next, populate homework grade
+		tempString = "";
+		pointsEarned = 0;
+		totalPoints = 0;
+		for (var i=0; i<homeworkNames.length; i++)
+		{
+			tempString = tempString + "<tr><td>" + homeworkNames[i] + "</td><td style='width:5%'></td><td>" + homeworkGrades[i] + "/" + homeworkMax[i] + "</td></tr>";
+			pointsEarned = pointsEarned + homeworkGrades[i];
+			totalPoints = totalPoints + homeworkMax[i];
+		}
+		
+		if (homeworkNames.length == 0)
+		{
+			document.getElementById("homeworkGrade").innerHTML = (100).toFixed(2);
+		}
+		else
+		{
+			document.getElementById("homework").innerHTML = tempString;
+			document.getElementById("homeworkGrade").innerHTML = ((pointsEarned / totalPoints) * 100).toFixed(2);
+		}
+		// Next, populate quiz grade
+		tempString = "";
+		pointsEarned = 0;
+		totalPoints = 0;
+		for (var i=0; i<quizNames.length; i++)
+		{
+			tempString = tempString + "<tr><td>" + quizNames[i] + "</td><td style='width:5%'></td><td>" + quizGrades[i] + "/" + quizMax[i] + "</td></tr>";
+			pointsEarned = pointsEarned + quizGrades[i];
+			totalPoints = totalPoints + quizMax[i];
+		}
+		
+		if (quizNames.length == 0)
+		{
+			document.getElementById("quizGrade").innerHTML = (100).toFixed(2);
+		}
+		else
+		{
+			document.getElementById("quizzes").innerHTML = tempString;
+			document.getElementById("quizGrade").innerHTML = ((pointsEarned / totalPoints) * 100).toFixed(2);
+		}
+		// Next, populate test grade
+		tempString = "";
+		pointsEarned = 0;
+		totalPoints = 0;
+		for (var i=0; i<testNames.length; i++)
+		{
+			tempString = tempString + "<tr><td>" + testNames[i] + "</td><td style='width:5%'></td><td>" + testGrades[i] + "/" + testMax[i] + "</td></tr>";
+			pointsEarned = pointsEarned + testGrades[i];
+			totalPoints = totalPoints + testMax[i];
+		}
+		
+		if (testNames.length == 0)
+		{
+			document.getElementById("testGrade").innerHTML = (100).toFixed(2);
+		}
+		else
+		{
+			document.getElementById("tests").innerHTML = tempString;
+			document.getElementById("testGrade").innerHTML = ((pointsEarned / totalPoints) * 100).toFixed(2);
+		}
+		// Next, populate exam grade
+		tempString = "";
+		pointsEarned = 0;
+		totalPoints = 0;
+		for (var i=0; i<examNames.length; i++)
+		{
+			tempString = tempString + "<tr><td>" + examNames[i] + "</td><td style='width:5%'></td><td>" + examGrades[i] + "/" + examMax[i] + "</td></tr>";
+			pointsEarned = pointsEarned + examGrades[i];
+			totalPoints = totalPoints + examMax[i];
+		}
+		
+		if (examNames.length == 0)
+		{
+			document.getElementById("examGrade").innerHTML = (100).toFixed(2);
+		}
+		else
+		{
+			document.getElementById("exams").innerHTML = tempString;
+			document.getElementById("examGrade").innerHTML = ((pointsEarned / totalPoints) * 100).toFixed(2);
+		}
+		// Next, calculate overall grade
+		document.getElementById("overallGrade").innerHTML = ((document.getElementById("participationGrade").innerHTML * participationWeight) + (document.getElementById("homeworkGrade").innerHTML * homeworkWeight) + (document.getElementById("quizGrade").innerHTML * quizWeight) + (document.getElementById("testGrade").innerHTML * testWeight) + (document.getElementById("examGrade").innerHTML * examWeight)).toFixed(2);
+	}
+ </script>
