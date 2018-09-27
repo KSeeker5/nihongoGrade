@@ -5,9 +5,11 @@ var testWeight = .30;
 var examWeight = .35;
 
 var participationNames = [
+	"part 1"
 ]
 
 var participationMax = [
+	15
 ]
 
 var homeworkNames = [

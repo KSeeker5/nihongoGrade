@@ -1,6 +1,7 @@
-var name = "Alex Knipper";
+var name = "Ralph Alexander Knipper";
 
 var participationGrades = [
+	12
 ]
 
 var homeworkGrades = [
