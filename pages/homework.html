@@ -19,7 +19,7 @@
  <script src="../scripts/Cookies.js"></script>
 
  </head>
- <body onLoad="checkCookie(0)">
+ <body onLoad="verifyLogin()">
 	<section>
 		<h1 id="name">日本語Grade - Homework Snap-Ins</h1>
 		<hr/>
@@ -35,3 +35,23 @@
 	<p style="text-align:center">&copy; Alex Knipper - 日本語Grade</p>
  </body>
  </html>
+ 
+ <script>
+	var fetchData = true;
+	var loginDisplay = document.getElementById("loggedIn");
+ 
+	function verifyLogin()
+	{
+		checkCookie(0);
+		loginDisplay.innerHTML = getCookie("username");
+		if (fetchData)
+		{
+			setTimeout(verifyLogin, 500);
+		}
+	}
+	
+	function stopFetching()
+	{
+		fetchData = false;
+	}
+ </script>
