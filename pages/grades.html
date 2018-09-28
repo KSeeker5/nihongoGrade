@@ -24,6 +24,7 @@
  <body onLoad="populatePage()">
 	<section>
 		<h1 id="name">日本語Grade - Grades</h1>
+		<p class="small">Logged in as: <span id="loggedIn" onChange="stopFetching()"></span>&nbsp;&nbsp;<a class="small" href="#" onClick="setCookie('username', '', 1);">Log Out</a></p>
 		<hr/>
 		<br/><br/>
 		<h2>Grades for <span id="studentName" onChange="stopFetching()"></span></h2>
