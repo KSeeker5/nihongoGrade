@@ -105,8 +105,16 @@
 		var totalPoints = 0;
 		for (var i=0; i<participationNames.length; i++)
 		{
-			tempString = tempString + "<tr><td>" + participationNames[i] + "</td><td style='width:5%'></td><td>" + participationGrades[i] + "/" + participationMax[i] + "</td></tr>";
-			pointsEarned = pointsEarned + participationGrades[i];
+			if (participationGrades[i] != -1)
+			{
+				tempString = tempString + "<tr><td>" + participationNames[i] + "</td><td style='width:5%'></td><td>" + participationGrades[i] + "/" + participationMax[i] + "</td></tr>";
+				pointsEarned = pointsEarned + participationGrades[i];
+			}
+			else
+			{
+				tempString = tempString + "<tr><td>" + participationNames[i] + "</td><td style='width:5%'></td><td>" + "/" + participationMax[i] + "</td></tr>";
+				pointsEarned = pointsEarned + participationMax[i];
+			}
 			totalPoints = totalPoints + participationMax[i];
 		}
 		
