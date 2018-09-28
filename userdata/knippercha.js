@@ -5,6 +5,7 @@ var participationGrades = [
 ]
 
 var homeworkGrades = [
+	-1
 ]
 
 var quizGrades = [

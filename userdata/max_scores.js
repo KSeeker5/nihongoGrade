@@ -13,9 +13,11 @@ var participationMax = [
 ]
 
 var homeworkNames = [
+	"Hiragana Set 1: あ　う　い　え　お　ん"
 ]
 
 var homeworkMax = [
+	12
 ]
 
 var quizNames = [
