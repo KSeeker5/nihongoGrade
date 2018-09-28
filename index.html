@@ -19,18 +19,19 @@
  <script src="scripts/Cookies.js"></script>
 
  </head>
- <body onLoad="verifyLogin()">
+ <!--<body onLoad="verifyLogin()">-->
+ <body>
 	<section>
 		<h1 id="name">日本語Grade - Dashboard</h1>
 		<p class="small">Logged in as: <span id="loggedIn" onChange="stopFetching()"></span>&nbsp;&nbsp;<a class="small" href="#" onClick="setCookie('username', '', 1);">Log Out</a></p>
 		<hr/>
 		<br/><br/>
-		<p href="pages/grades.html" onClick="location.href='pages/grades.html'">View Grades</p>
-		<p href="pages/grades.html" onClick="location.href='program/NihongoGrade.exe'">Get Class Software</p>
-		<p href="pages/homework.html" onClick="location.href='pages/homework.html'">Download Homework/Practices</p>
-		<p href="pages/quizzes.html" onClick="location.href='pages/quizzes.html'">Download Quizzes</p>
-		<p href="pages/tests.html" onClick="location.href='pages/tests.html'">Download Tests</p>
-		<p href="pages/exams.html" onClick="location.href='pages/exams.html'">Download Exams</p>
+		<p class="link" href="pages/grades.html" onClick="location.href='pages/grades.html'">View Grades</p>
+		<p class="link" href="pages/grades.html" onClick="location.href='program/NihongoGrade.exe'">Get Class Software</p>
+		<p class="link" href="pages/homework.html" onClick="location.href='pages/homework.html'">Download Homework/Practices</p>
+		<p class="link" href="pages/quizzes.html" onClick="location.href='pages/quizzes.html'">Download Quizzes</p>
+		<p class="link" href="pages/tests.html" onClick="location.href='pages/tests.html'">Download Tests</p>
+		<p class="link" href="pages/exams.html" onClick="location.href='pages/exams.html'">Download Exams</p>
 	</section>
 	<br/>
 	<hr/>
