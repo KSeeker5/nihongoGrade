@@ -20,6 +20,11 @@ p
 	font-size:3vw;
 }
 
+p.link
+{
+	cursor:pointer;
+}
+
 .small, td
 {
 	font-size:2.5vw;
