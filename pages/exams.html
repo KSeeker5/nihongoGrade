@@ -1,0 +1,58 @@
+<!DOCTYPE html 
+   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 	     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+ 
+ <meta http-equiv="Content-Type" content="text/html;   charset=utf-8"/>
+ <meta name="keywords" content="日本語"/>
+ <meta name="description" content="A program designed to be the dashboard for NihongoGrade grading software"/>
+ <meta name="author" content="Alex Knipper"/>
+
+ <title>日本語Grade-Exams</title>
+ 
+ <link rel="stylesheet" type="text/css" href="../stylesheets/style.css"/>
+ 
+ <link href="https://fonts.googleapis.com/css?family=Kosugi+Maru" rel="stylesheet">
+ 
+ <script src="../scripts/Cookies.js"></script>
+
+ </head>
+ <body onLoad="verifyLogin()">
+	<section>
+		<h1 id="name">日本語Grade - Exam Snap-Ins</h1>
+		<p class="small">Logged in as: <span id="loggedIn" onChange="stopFetching()"></span>&nbsp;&nbsp;<a class="small" href="#" onClick="setCookie('username', '', 1);">Log Out</a></p>
+		<hr/>
+		<br/><br/>
+		<h3>Exam 1 - Hiragana Set 1</h3>
+		<p onClick="location.href='tests/test1.data'">Click to download .DATA file</p>
+		<br/>
+		<h3>Exam 2 - Hiragana Set 2</h3>
+		<p onClick="location.href='tests/test2.data'">Click to download .DATA file</p>
+	</section>
+	<br/>
+	<hr/>
+	<p style="text-align:center">&copy; Alex Knipper - 日本語Grade</p>
+ </body>
+ </html>
+ 
+ <script>
+	var fetchData = true;
+	var loginDisplay = document.getElementById("loggedIn");
+ 
+	function verifyLogin()
+	{
+		checkCookie(0);
+		loginDisplay.innerHTML = getCookie("username");
+		if (fetchData)
+		{
+			setTimeout(verifyLogin, 500);
+		}
+	}
+	
+	function stopFetching()
+	{
+		fetchData = false;
+	}
+ </script>
