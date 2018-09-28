@@ -89,7 +89,6 @@
 		script.innerHTML = null;
 		document.getElementById("userScript").innerHTML = "";
 		document.getElementById("userScript").appendChild(script);
-		document.getElementById("studentName").innerHTML = name;
 		verifyLogin();
 		setTimeout(fillInfo, 500);
 	}
@@ -98,6 +97,8 @@
 	
 	function fillInfo()
 	{
+		// Set student name string
+		document.getElementById("studentName").innerHTML = name;
 		// Now, populate participation grade
 		var tempString = "";
 		var pointsEarned = 0;
