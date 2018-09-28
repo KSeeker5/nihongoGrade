@@ -133,8 +133,16 @@
 		totalPoints = 0;
 		for (var i=0; i<homeworkNames.length; i++)
 		{
-			tempString = tempString + "<tr><td>" + homeworkNames[i] + "</td><td style='width:5%'></td><td>" + homeworkGrades[i] + "/" + homeworkMax[i] + "</td></tr>";
-			pointsEarned = pointsEarned + homeworkGrades[i];
+			if (participationGrades[i] != -1)
+			{
+				tempString = tempString + "<tr><td>" + homeworkNames[i] + "</td><td style='width:5%'></td><td>" + homeworkGrades[i] + "/" + homeworkMax[i] + "</td></tr>";
+				pointsEarned = pointsEarned + homeworkGrades[i];
+			}
+			else
+			{
+				tempString = tempString + "<tr><td>" + homeworkNames[i] + "</td><td style='width:5%'></td><td>" + "/" + homeworkMax[i] + "</td></tr>";
+				pointsEarned = pointsEarned + homeworkMax[i];
+			}
 			totalPoints = totalPoints + homeworkMax[i];
 		}
 		
@@ -153,8 +161,16 @@
 		totalPoints = 0;
 		for (var i=0; i<quizNames.length; i++)
 		{
-			tempString = tempString + "<tr><td>" + quizNames[i] + "</td><td style='width:5%'></td><td>" + quizGrades[i] + "/" + quizMax[i] + "</td></tr>";
-			pointsEarned = pointsEarned + quizGrades[i];
+			if (participationGrades[i] != -1)
+			{
+				tempString = tempString + "<tr><td>" + quizNames[i] + "</td><td style='width:5%'></td><td>" + quizGrades[i] + "/" + quizMax[i] + "</td></tr>";
+				pointsEarned = pointsEarned + quizGrades[i];
+			}
+			else
+			{
+				tempString = tempString + "<tr><td>" + quizNames[i] + "</td><td style='width:5%'></td><td>" + "/" + quizMax[i] + "</td></tr>";
+				pointsEarned = pointsEarned + quizMax[i];
+			}
 			totalPoints = totalPoints + quizMax[i];
 		}
 		
@@ -173,8 +189,16 @@
 		totalPoints = 0;
 		for (var i=0; i<testNames.length; i++)
 		{
-			tempString = tempString + "<tr><td>" + testNames[i] + "</td><td style='width:5%'></td><td>" + testGrades[i] + "/" + testMax[i] + "</td></tr>";
-			pointsEarned = pointsEarned + testGrades[i];
+			if (participationGrades[i] != -1)
+			{
+				tempString = tempString + "<tr><td>" + testNames[i] + "</td><td style='width:5%'></td><td>" + testGrades[i] + "/" + testMax[i] + "</td></tr>";
+				pointsEarned = pointsEarned + testGrades[i];
+			}
+			else
+			{
+				tempString = tempString + "<tr><td>" + testNames[i] + "</td><td style='width:5%'></td><td>" + "/" + testMax[i] + "</td></tr>";
+				pointsEarned = pointsEarned + testMax[i];
+			}
 			totalPoints = totalPoints + testMax[i];
 		}
 		
@@ -193,8 +217,16 @@
 		totalPoints = 0;
 		for (var i=0; i<examNames.length; i++)
 		{
-			tempString = tempString + "<tr><td>" + examNames[i] + "</td><td style='width:5%'></td><td>" + examGrades[i] + "/" + examMax[i] + "</td></tr>";
-			pointsEarned = pointsEarned + examGrades[i];
+			if (participationGrades[i] != -1)
+			{
+				tempString = tempString + "<tr><td>" + examNames[i] + "</td><td style='width:5%'></td><td>" + examGrades[i] + "/" + examMax[i] + "</td></tr>";
+				pointsEarned = pointsEarned + examGrades[i];
+			}
+			else
+			{
+				tempString = tempString + "<tr><td>" + examNames[i] + "</td><td style='width:5%'></td><td>" + "/" + examMax[i] + "</td></tr>";
+				pointsEarned = pointsEarned + examMax[i];
+			}
 			totalPoints = totalPoints + examMax[i];
 		}
 		
