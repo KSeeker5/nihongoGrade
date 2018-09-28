@@ -13,28 +13,40 @@ var participationMax = [
 ]
 
 var homeworkNames = [
-	"Hiragana Set 1 - あ,う,い,え,お"
+	"Recognize Hiragana 1 - あ,う,い,え,お",
+	"Write Hiragana 1 - あ,う,い,え,お",
+	"Recognize Hiragana 2 - か,き,け,こ,く",
+	"Write Hiragana 2 - か,き,け,こ,く"
 ]
 
 var homeworkMax = [
-	12
+	10,
+	10,
+	10,
+	10
 ]
 
 var quizNames = [
+	"Hiragana Set 1 - あ,う,い,え,お"
 ]
 
 var quizMax = [
+	15
 ]
 
 var testNames = [
+	"Recognizing Hiragana"
 ]
 
 
 var testMax = [
+	100
 ]
 
 var examNames = [
+	"Writing/Pronouncing Hiragana"
 ]
 
 var examMax = [
+	100
 ]
