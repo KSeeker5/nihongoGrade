@@ -65,7 +65,7 @@
  
 	function verifyLogin()
 	{
-		checkCookie(0);
+		//checkCookie(0);
 		loginDisplay.innerHTML = getCookie("username");
 		if (fetchData1)
 		{
@@ -90,6 +90,7 @@
 		document.getElementById("userScript").innerHTML = "";
 		document.getElementById("userScript").appendChild(script);
 		document.getElementById("studentName").innerHTML = name;
+		verifyLogin();
 		setTimeout(fillInfo, 500);
 	}
 	
