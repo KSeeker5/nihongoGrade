@@ -5,9 +5,11 @@ var testWeight = .30;
 var examWeight = .35;
 
 var participationNames = [
+	"Weekly Practice 1"
 ]
 
 var participationMax = [
+	7
 ]
 
 var homeworkNames = [
