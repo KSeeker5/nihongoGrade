@@ -26,10 +26,10 @@
 		<hr/>
 		<br/><br/>
 		<h3>Homework 1 - Hiragana Set 1</h3>
-		<p class="link" onClick="location.href='homework/homework1.data'">Click to download .DATA file</p>
+		<p class="link" onClick="download('homework/homework1.data')">Click to download .DATA file</p>
 		<br/>
 		<h3>Homework 2 - Hiragana Set 2</h3>
-		<p class="link" onClick="location.href='homework/homework2.data'">Click to download .DATA file</p>
+		<p class="link" onClick="download('homework/homework2.data')">Click to download .DATA file</p>
 	</section>
 	<br/>
 	<hr/>
@@ -45,6 +45,10 @@
 	{
 		checkCookie(0);
 		loginDisplay.innerHTML = getCookie("username");
+		if (loginDisplay.innerHTML == getCookie("username"))
+		{
+			stopFetching();
+		}
 		if (fetchData)
 		{
 			setTimeout(verifyLogin, 500);

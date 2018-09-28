@@ -45,6 +45,10 @@
 	{
 		checkCookie(0);
 		loginDisplay.innerHTML = getCookie("username");
+		if (loginDisplay.innerHTML == getCookie("username"))
+		{
+			stopFetching();
+		}
 		if (fetchData)
 		{
 			setTimeout(verifyLogin, 500);
