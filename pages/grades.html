@@ -67,6 +67,10 @@
 	{
 		//checkCookie(0);
 		loginDisplay.innerHTML = getCookie("username");
+		if (loginDisplay.innerHTML == getCookie("username"))
+		{
+			stopFetchingName();
+		}
 		if (fetchData1)
 		{
 			setTimeout(verifyLogin, 500);
@@ -241,6 +245,10 @@
 		}
 		// Next, calculate overall grade
 		document.getElementById("overallGrade").innerHTML = ((document.getElementById("participationGrade").innerHTML * participationWeight) + (document.getElementById("homeworkGrade").innerHTML * homeworkWeight) + (document.getElementById("quizGrade").innerHTML * quizWeight) + (document.getElementById("testGrade").innerHTML * testWeight) + (document.getElementById("examGrade").innerHTML * examWeight)).toFixed(2);
+		if (document.getElementById("studentName").innerHTML == name)
+		{
+			stopFetching();
+		}
 		if (fetchData)
 		{
 			setTimeout(fillInfo, 500);
