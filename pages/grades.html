@@ -59,6 +59,25 @@
  </body>
  </html>
  
+ <script>
+	var fetchData1 = true;
+	var loginDisplay = document.getElementById("loggedIn");
+ 
+	function verifyLogin()
+	{
+		checkCookie(0);
+		loginDisplay.innerHTML = getCookie("username");
+		if (fetchData1)
+		{
+			setTimeout(verifyLogin, 500);
+		}
+	}
+	
+	function stopFetching()
+	{
+		fetchData1 = false;
+	}
+ </script>
  
  <script>
 	function populatePage()
