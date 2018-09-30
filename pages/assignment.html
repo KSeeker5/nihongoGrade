@@ -33,7 +33,7 @@
 		<p class="small">Logged in as: <span id="loggedIn" onChange="stopFetching()"></span>&nbsp;&nbsp;<a class="small" href="#" onClick="setCookie('username', '', 1);location.reload(true);">Log Out</a></p>
 		<hr/>
 		<br/><br/>
-		<form id="assignment" onSubmit="sendResults();location.href='../index.html'" action="#">
+		<form id="assignment" autocomplete="off" onSubmit="sendResults();location.href='../index.html'" action="#">
 			<!--<input type="submit" value="Submit Answers"/>-->
 		</form>
 	</section>
@@ -111,10 +111,10 @@
 			}
 		}
 		// Format the questions into HTML elements and ask them
-		var questionHTML = "";
+		var questionHTML = "<input autocomplete='false' name='hidden' type='text' style='display:none;'>";
 		for (var i=0; i<questionOrder.length; i++)
 		{
-			questionHTML = questionHTML + "<p>" + questionOrder[i] + "</p><input type='textbox' id='answer" + i+1 + "' required/>";
+			questionHTML = questionHTML + "<p>" + questionOrder[i] + "</p><input type='textbox' id='answer" + i + "' required/>";
 		}
 		// Add a submit button
 		questionHTML = questionHTML + "<br/><br/><br/><input type='submit' value='Submit Answers'/>";
@@ -128,7 +128,7 @@
 		var score = 0;
 		for (var i=0; i<questionOrder.length; i++)
 		{
-			if (answerOrder[i] == document.getElementById('answer' + i+1).value)
+			if (answerOrder[i] == document.getElementById('answer' + i).value)
 			{
 				score = score + 1;
 			}
