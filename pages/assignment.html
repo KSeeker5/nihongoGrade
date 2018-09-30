@@ -27,13 +27,13 @@
  </script>
 
  </head>
- <body onLoad="populatePage()" onUnload="location.href='../index.html'">
+ <body onLoad="populatePage()">
 	<section>
 		<h1 id="name"><span style="cursor:pointer" onClick="location.href='../index.html'">日本語Grade</span> - <span id="assignmentName"></span></h1>
 		<p class="small">Logged in as: <span id="loggedIn" onChange="stopFetching()"></span>&nbsp;&nbsp;<a class="small" href="#" onClick="setCookie('username', '', 1);location.reload(true);">Log Out</a></p>
 		<hr/>
 		<br/><br/>
-		<form id="assignment" autocomplete="off" onSubmit="sendResults();location.href='../index.html'">
+		<form id="assignment" autocomplete="off" onSubmit="sendResults();window.location.assign('../index.html');">
 			<!--<input type="submit" value="Submit Answers"/>-->
 		</form>
 	</section>
