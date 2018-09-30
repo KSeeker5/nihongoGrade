@@ -27,7 +27,7 @@
  </script>
 
  </head>
- <body onLoad="populatePage()">
+ <!--<body onLoad="populatePage()">--><body>
 	<section>
 		<h1 id="name">日本語Grade - <span id="assignmentName"></span></h1>
 		<p class="small">Logged in as: <span id="loggedIn" onChange="stopFetching()"></span>&nbsp;&nbsp;<a class="small" href="#" onClick="setCookie('username', '', 1);location.reload(true);">Log Out</a></p>
@@ -82,11 +82,11 @@
 		document.getElementById("userScript").innerHTML = "";
 		document.getElementById("userScript").appendChild(script);
 		// Create script element pointing to assignment script
-		var script = document.createElement("script");
+		var script2 = document.createElement("script");
 		script.type = "text/javascript";
 		script.src = "../scripts/assignments/" + getCookie("assignment") + ".js";
 		script.innerHTML = null;
-		document.getElementById("userScript").innerHTML = "";
+		//document.getElementById("userScript").innerHTML = "";
 		document.getElementById("userScript").appendChild(script);
 		verifyLogin();
 		setTimeout(fillInfo, 500);
