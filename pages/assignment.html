@@ -34,7 +34,7 @@
 		<hr/>
 		<br/><br/>
 		<form id="assignment" onSubmit="sendResults();location.href='../index.html'" action="#">
-			<input type="submit" value="Submit Answers"/>
+			<!--<input type="submit" value="Submit Answers"/>-->
 		</form>
 	</section>
 	<br/>
@@ -114,6 +114,8 @@
 		}
 		// Add a submit button
 		questionHTML = questionHTML + "<input type='submit' value='Submit Answers'/>";
+		// Fill the document
+		document.getElementById('assignment').innerHTML = questionHTML;
 	}
 	
 	function sendResults()
