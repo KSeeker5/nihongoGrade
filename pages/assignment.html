@@ -27,13 +27,13 @@
  </script>
 
  </head>
- <body onLoad="populatePage()">
+<body onLoad="populatePage()">
 	<section>
 		<h1 id="name">日本語Grade - <span id="assignmentName"></span></h1>
 		<p class="small">Logged in as: <span id="loggedIn" onChange="stopFetching()"></span>&nbsp;&nbsp;<a class="small" href="#" onClick="setCookie('username', '', 1);location.reload(true);">Log Out</a></p>
 		<hr/>
 		<br/><br/>
-		<form id="assignment" onSubmit="sendResults()" action="#">
+		<form id="assignment" onSubmit="sendResults();location.href='../index.html'" action="#">
 			<input type="submit" value="Submit Answers"/>
 		</form>
 	</section>
@@ -86,39 +86,50 @@
 		script.type = "text/javascript";
 		script.src = "../scripts/assignments/" + getCookie("assignment") + ".js";
 		script.innerHTML = null;
-		//document.getElementById("userScript").innerHTML = "";
 		document.getElementById("userScript").appendChild(script);
 		verifyLogin();
 		setTimeout(fillInfo, 500);
 	}
 	
+	var questionOrder = [];
+	var answerOrder = [];
+	
 	function fillInfo()
 	{
 		// Generate random question order
-		var questionOrder = [];
-		var answerOrder = [];
 		for (var i=0; i<questionsArr.length; i++)
 		{
 			var num = Math.floor(Math.random() * questionsArr.length);
 			if (!questionOrder.includes(questionsArr[num]))
 			{
 				questionOrder.push(questionsArr[num]);
-				answerOrder.push(answerArr[num]);
+				answerOrder.push(answersArr[num]);
 			}
 		}
 		// Format the questions into HTML elements and ask them
+		var questionHTML = "";
 		for (var i=0; i<questionOrder.length(); i++)
 		{
-			//hi
+			questionHTML = questionHTML + "<p>" + questionOrder[i] + "</p><input type='textbox' id='answer" + i+1 + "' required/>";
 		}
+		// Add a submit button
+		questionHTML = questionHTML + "<input type='submit' value='Submit Answers'/>";
 	}
 	
 	function sendResults()
 	{
+		// Grade assignment
+		var score = 0;
+		for (var i=0; i<questionOrder.length; i++)
+		{
+			if (answerOrder[i] == document.getElementById('answer' + i+1).value)
+			{
+				score = score + 1;
+			}
+		}
+		// Declare variables needed for email
 		var user = document.getElementById("loggedIn").innerHTML;
 		var assignment = document.getElementById("assignmentName").innerHTML;
-		var score = 14;
-		var max_score = 15;
 		// Send email
 		var service_id = 'nihongograde';
 		var template_id = 'nihongograde_report';
@@ -126,7 +137,7 @@
 			username: user,
 			assignment_name: assignment,
 			score: score,
-			max_score: max_score
+			max_score: max_score// From assignment's js file
 		};
 		// Test to see if the assignment has been completed before, and act accordingly
 		if (!completedAssignments.includes(document.getElementById("assignmentName").innerHTML))
