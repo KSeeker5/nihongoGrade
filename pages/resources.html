@@ -10,7 +10,7 @@
  <meta name="description" content="A program designed to be the dashboard for NihongoGrade grading software"/>
  <meta name="author" content="Alex Knipper"/>
 
- <title>日本語Grade-Exams</title>
+ <title>日本語Grade</title>
  
  <link rel="stylesheet" type="text/css" href="../stylesheets/style.css"/>
  
@@ -21,15 +21,12 @@
  </head>
  <body onLoad="verifyLogin()">
 	<section>
-		<h1 id="name"><span style="cursor:pointer" onClick="location.href='../index.html'">日本語Grade</span> - Exams</h1>
+		<h1 id="name"><span style="cursor:pointer" onClick="location.href='../index.html'">日本語Grade</span> - Resources</h1>
 		<p class="small">Logged in as: <span id="loggedIn" onChange="stopFetching()"></span>&nbsp;&nbsp;<a class="small" href="#" onClick="setCookie('username', '', 1);location.reload(true);">Log Out</a></p>
 		<hr/>
 		<br/><br/>
-		<h3>Exam 1 - Hiragana Set 1</h3>
-		<p class="link" onClick="location.href='tests/test1.data'">Click to download .DATA file</p>
-		<br/>
-		<h3>Exam 2 - Hiragana Set 2</h3>
-		<p class="link" onClick="location.href='tests/test2.data'">Click to download .DATA file</p>
+		<p>Hiragana Keyboard Layout</p>
+		<img src="../classwork/resources/hiraganaKeyboardLayout.jpg" alt="Hiragana Keyboard Layout" style="width:50%"/>
 	</section>
 	<br/>
 	<hr/>
