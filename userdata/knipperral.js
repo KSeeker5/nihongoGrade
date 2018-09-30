@@ -24,5 +24,6 @@ var examGrades = [
 ]
 
 var completedAssignments = [
-	"Homework 1"
+	"Homework 1",
+	"Homework 2"
 ]
