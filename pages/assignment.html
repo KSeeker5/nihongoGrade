@@ -1,0 +1,135 @@
+<!DOCTYPE html 
+   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 	     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+ 
+ <meta http-equiv="Content-Type" content="text/html;   charset=utf-8"/>
+ <meta name="keywords" content="日本語"/>
+ <meta name="description" content="A program designed to be the dashboard for NihongoGrade grading software"/>
+ <meta name="author" content="Alex Knipper"/>
+
+ <title>日本語Grade</title>
+ 
+ <link rel="stylesheet" type="text/css" href="../stylesheets/style.css"/>
+ 
+ <link href="https://fonts.googleapis.com/css?family=Kosugi+Maru" rel="stylesheet">
+ 
+ <script src="../scripts/Cookies.js"></script>
+ 
+ <!--<script src="https://smtpjs.com/v2/smtp.js"></script>-->
+ <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.2.4/email.min.js"></script>
+ <script type="text/javascript">
+    (function(){
+       emailjs.init("user_GMQ76QbQ5591nXaaRu6AM");
+    })();
+ </script>
+
+ </head>
+ <!--<body onLoad="populatePage()">-->
+ <body>
+	<section>
+		<h1 id="name">日本語Grade - <span id="assignmentName"></span></h1>
+		<p class="small">Logged in as: <span id="loggedIn" onChange="stopFetching()"></span>&nbsp;&nbsp;<a class="small" href="#" onClick="setCookie('username', '', 1);location.reload(true);">Log Out</a></p>
+		<hr/>
+		<br/><br/>
+		<form id="assignment" onSubmit="sendResults()" action="#">
+			<input type="submit" value="Submit Answers"/>
+		</form>
+	</section>
+	<br/>
+	<hr/>
+	<p style="text-align:center">&copy; Alex Knipper - 日本語Grade</p>
+	<span id="userScript" onChange="fillInfo()"></span>
+ </body>
+ </html>
+ 
+ <script>
+	var fetchData = true;
+	var loginDisplay = document.getElementById("loggedIn");
+	var loginDisplay = document.getElementById("assignmentName");
+ 
+	function verifyLogin()
+	{
+		//checkCookie(0);
+		loginDisplay.innerHTML = getCookie("username");
+		assignmentDisplay.innerHTML = getCookie("assignment");
+		if (loginDisplay.innerHTML == getCookie("username") && assignmentDisplay.innerHTML == getCookie("assignment"))
+		{
+			stopFetching();
+		}
+		if (fetchData)
+		{
+			setTimeout(verifyLogin, 500);
+		}
+	}
+	
+	function stopFetching()
+	{
+		fetchData = false;
+	}
+ </script>
+ 
+ <script>
+	function populatePage()
+	{
+		checkCookie(0);
+		var script = document.createElement("script");
+		script.type = "text/javascript";
+		script.src = "../userdata/" + getCookie("username") + ".js";
+		script.innerHTML = null;
+		document.getElementById("userScript").innerHTML = "";
+		document.getElementById("userScript").appendChild(script);
+		verifyLogin();
+		setTimeout(fillInfo, 500);
+	}
+	
+	function fillInfo()
+	{
+		// Generate random question order
+		var questionOrder = [];
+		var answerOrder = [];
+		for (var i=0; i<questionsArr.length; i++)
+		{
+			var num = Math.floor(Math.random() * questionsArr.length);
+			if (!questionOrder.includes(questionsArr[num]))
+			{
+				questionOrder.push(questionsArr[num]);
+				answerOrder.push(answerArr[num]);
+			}
+		}
+		// Format the questions into HTML elements and ask them
+		for (var i=0; i<questionOrder.length(); i++)
+		{
+			//hi
+		}
+	}
+	
+	function sendResults()
+	{
+		var user = document.getElementById("loggedIn").innerHTML;
+		var assignment = document.getElementById("assignmentName").innerHTML;
+		var score = 14;
+		var max_score = 15;
+		// Send email
+		var service_id = 'nihongograde';
+		var template_id = 'nihongograde_report';
+		var template_params = {
+			username: user,
+			assignment_name: assignment,
+			score: score,
+			max_score: max_score
+		};
+		// Test to see if the assignment has been completed before, and act accordingly
+		if (!completedAssignments.includes(document.getElementById("assignmentName").innerHTML))
+		{
+			alert(user + '\n' + assignment + '\n' + score + '/' + max_score);
+			//emailjs.send(service_id,template_id,template_params);
+		}
+		else
+		{
+			alert('USER RECOMPLETE\n' + user + '\n' + assignment + '\n' + score + '/' + max_score);
+		}
+	}
+ </script>

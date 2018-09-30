@@ -22,3 +22,6 @@ var testGrades = [
 var examGrades = [
 	-1
 ]
+
+var completedAssignments = [
+]

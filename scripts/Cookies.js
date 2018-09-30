@@ -60,3 +60,22 @@ function checkLoginCookie() {
         }
     }*/
 }
+
+
+function checkAssignmentCookie() {
+    var user = getCookie("assignment");
+	if (user != "") {
+		return 0;
+	} else {
+		location.href="../index.html";
+	}
+	return 1;
+    /*if (user != "") {
+        alert("Welcome again " + user);
+    } else {
+        user = prompt("Please enter your name:", "");
+        if (user != "" && user != null) {
+            setCookie("username", user, 365);
+        }
+    }*/
+}
