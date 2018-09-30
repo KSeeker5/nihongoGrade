@@ -74,9 +74,17 @@
 	function populatePage()
 	{
 		checkCookie(0);
+		// Create script element pointing to user script
 		var script = document.createElement("script");
 		script.type = "text/javascript";
 		script.src = "../userdata/" + getCookie("username") + ".js";
+		script.innerHTML = null;
+		document.getElementById("userScript").innerHTML = "";
+		document.getElementById("userScript").appendChild(script);
+		// Create script element pointing to assignment script
+		var script = document.createElement("script");
+		script.type = "text/javascript";
+		script.src = "../scripts/assignments/" + getCookie("assignment") + ".js";
 		script.innerHTML = null;
 		document.getElementById("userScript").innerHTML = "";
 		document.getElementById("userScript").appendChild(script);
