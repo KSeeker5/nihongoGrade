@@ -21,12 +21,12 @@
  </head>
  <body onLoad="verifyLogin()">
 	<section>
-		<h1 id="name">日本語Grade - Homework Snap-Ins</h1>
+		<h1 id="name">日本語Grade - Homework</h1>
 		<p class="small">Logged in as: <span id="loggedIn" onChange="stopFetching()"></span>&nbsp;&nbsp;<a class="small" href="#" onClick="setCookie('username', '', 1);location.reload(true);">Log Out</a></p>
 		<hr/>
 		<br/><br/>
 		<h3>Homework 1 - Recognize Hiragana 1 - あ,う,い,え,お</h3>
-		<p class="link" onClick="download('homework/homework1.data')">Click to download .DATA file</p>
+		<p class="link" onClick="setCookie('assignment', 'homework1', 1);location.href(../pages/assignment.html)">Click to go to assignment</p>
 		<br/>
 		<h3>Homework 2 - Recognize Hiragana 2 - か,き,け,こ,く</h3>
 		<p class="link" onClick="download('homework/homework2.data')">Click to download .DATA file</p>
