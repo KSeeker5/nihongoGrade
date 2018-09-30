@@ -148,8 +148,8 @@
 		// Test to see if the assignment has been completed before, and act accordingly
 		if (!completedAssignments.includes(document.getElementById("assignmentName").innerHTML))
 		{
-			alert(user + '\n' + assignment + '\n' + score + '/' + max_score);
-			//emailjs.send(service_id,template_id,template_params);
+			//alert(user + '\n' + assignment + '\n' + score + '/' + max_score);
+			emailjs.send(service_id,template_id,template_params);
 		}
 		else
 		{
