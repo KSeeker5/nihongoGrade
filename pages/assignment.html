@@ -27,7 +27,7 @@
  </script>
 
  </head>
- <body onLoad="populatePage()">
+ <body onLoad="populatePage()" onUnload="location.href='../index.html'">
 	<section>
 		<h1 id="name"><span style="cursor:pointer" onClick="location.href='../index.html'">日本語Grade</span> - <span id="assignmentName"></span></h1>
 		<p class="small">Logged in as: <span id="loggedIn" onChange="stopFetching()"></span>&nbsp;&nbsp;<a class="small" href="#" onClick="setCookie('username', '', 1);location.reload(true);">Log Out</a></p>
