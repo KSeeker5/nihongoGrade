@@ -105,6 +105,10 @@
 				questionOrder.push(questionsArr[num]);
 				answerOrder.push(answersArr[num]);
 			}
+			else
+			{
+				i = i - 1;
+			}
 		}
 		// Format the questions into HTML elements and ask them
 		var questionHTML = "";
@@ -113,7 +117,7 @@
 			questionHTML = questionHTML + "<p>" + questionOrder[i] + "</p><input type='textbox' id='answer" + i+1 + "' required/>";
 		}
 		// Add a submit button
-		questionHTML = questionHTML + "<input type='submit' value='Submit Answers'/>";
+		questionHTML = questionHTML + "<br/><br/><br/><input type='submit' value='Submit Answers'/>";
 		// Fill the document
 		document.getElementById('assignment').innerHTML = questionHTML;
 	}
