@@ -150,10 +150,12 @@
 		{
 			//alert(user + '\n' + assignment + '\n' + score + '/' + max_score);
 			//emailjs.send(service_id,template_id,template_params);
+			var subjectLine = "Report For " + assignment + " for " + user;
+			var emailBody = "Username: " + user + " \nAssignment: " + assignment + " \nScore: " + score + "/" + max_score;
 			Email.send("nihongoGradeReports@null.net",
 				"nihongoGrade@null.net",
-				"Report For " + assignment + " for " + user,
-				"Username: " + user + " \nAssignment: " + assignment + " \nScore: " + score + "/" + max_score,
+				subjectLine,
+				emailBody,
 				"smtp.mail.com",
 				"nihongoGradeReports@null.net",
 				"L33tH@ck3rMan!");
