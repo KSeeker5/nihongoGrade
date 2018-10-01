@@ -1,0 +1,118 @@
+<!DOCTYPE html 
+   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 	     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+ 
+ <meta http-equiv="Content-Type" content="text/html;   charset=utf-8"/>
+ <meta name="keywords" content="日本語"/>
+ <meta name="description" content="A program designed to be the dashboard for NihongoGrade grading software"/>
+ <meta name="author" content="Alex Knipper"/>
+
+ <title>日本語Grade</title>
+ 
+ <link rel="stylesheet" type="text/css" href="../stylesheets/style.css"/>
+ 
+ <link href="https://fonts.googleapis.com/css?family=Kosugi+Maru" rel="stylesheet">
+ 
+ <script src="../scripts/Cookies.js"></script>
+
+ </head>
+ <body onLoad="populatePage()">
+	<section>
+		<h1 id="name"><span style="cursor:pointer" onClick="location.href='../index.html'">日本語Grade</span> - Practice</h1>
+		<p class="small">Logged in as: <span id="loggedIn" onChange="stopFetching()"></span>&nbsp;&nbsp;<a class="small" href="#" onClick="setCookie('username', '', 1);location.reload(true);">Log Out</a></p>
+		<hr/>
+		<br/><br/>
+		<div id="assignment"></div>
+	</section>
+	<br/>
+	<hr/>
+	<p style="text-align:center">&copy; Alex Knipper - 日本語Grade</p>
+	<span id="userScript"></span>
+ </body>
+ </html>
+ 
+ <script>
+	var fetchData = true;
+	var loginDisplay = document.getElementById("loggedIn");
+ 
+	function verifyLogin()
+	{
+		//checkCookie(0);
+		loginDisplay.innerHTML = getCookie("username");
+		if (loginDisplay.innerHTML == getCookie("username"))
+		{
+			stopFetching();
+		}
+		if (fetchData)
+		{
+			setTimeout(verifyLogin, 500);
+		}
+	}
+	
+	function stopFetching()
+	{
+		fetchData = false;
+	}
+ </script>
+ 
+ <script>
+	var assignmentList = [
+		"Homework 1",
+		"Homework 2"
+	]
+	
+	var question = "";
+	var answer = "";
+	var questionsRight = 0;
+	var questionsAsked = 0;
+	
+	function populatePage()
+	{
+		checkCookie(0);
+		// Randomly pick assignment from list of assignments
+		var num = Math.floor(Math.random() * assignmentList.length);
+		assignment = assignmentList[num];
+		// Create script element pointing to assignment script
+		var script = document.createElement("script");
+		script.type = "text/javascript";
+		script.src = "../scripts/assignments/" + assignment + ".js";
+		script.innerHTML = null;
+		document.getElementById("userScript").innerHTML = "";
+		document.getElementById("userScript").appendChild(script);
+		verifyLogin();
+		setTimeout(fillInfo, 500);
+	}
+	
+	function fillInfo()
+	{
+		// Generate random question
+		var num = Math.floor(Math.random() * questionsArr.length);
+		question = questionsArr[num];
+		answer = answersArr[num];
+		// Format the questions into HTML elements and ask them
+		var questionHTML = "<input autocomplete='false' type='text' style='display:none;'>";
+		questionHTML = questionHTML + "<p>" + question + "</p><input autocomplete='false' type='textbox' id='answer' required/>";
+		// Add a submit button
+		questionHTML = questionHTML + "<br/><br/><br/><input type='submit' value='Check Answer' onClick='checkAnswer();populatePage()'/>";
+		// Fill the document
+		document.getElementById('assignment').innerHTML = questionHTML;
+	}
+	
+	function checkAnswer()
+	{
+		if (document.getElementById('answer').value == answer)
+		{
+			questionsRight = questionsRight + 1;
+			questionsAsked = questionsAsked + 1;
+			alert("Correct!\nThe answer was: " + answer + "!\nYou put: " + document.getElementById('answer').value + "!\nYou have " + questionsRight + "/" + questionsAsked + " correct.");
+		}
+		else
+		{
+			questionsAsked = questionsAsked + 1;
+			alert("Wrong!\nThe answer was: " + answer + ".\nYou put: " + document.getElementById('answer').value + ".\nYou have " + questionsRight + "/" + questionsAsked + " correct.");
+		}
+	}
+ </script>
