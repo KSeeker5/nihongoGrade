@@ -27,10 +27,12 @@ var homeworkMax = [
 ]
 
 var quizNames = [
-	"Hiragana Set 1 - あ,う,い,え,お"
+	"Hiragana Set 1 - あ,う,い,え,お",
+	"Hiragana Set 2 - か,き,け,こ,く"
 ]
 
 var quizMax = [
+	15,
 	15
 ]
 
