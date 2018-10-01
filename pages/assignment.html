@@ -33,7 +33,7 @@
 		<p class="small">Logged in as: <span id="loggedIn" onChange="stopFetching()"></span>&nbsp;&nbsp;<a class="small" href="#" onClick="setCookie('username', '', 1);location.reload(true);">Log Out</a></p>
 		<hr/>
 		<br/><br/>
-		<form id="assignment" autocomplete="off" onSubmit="sendResults();window.location.assign('../index.html');">
+		<form id="assignment" autocomplete="off" onSubmit="sendResults();window.location.assign('../index.html');" action="#">
 			<!--<input type="submit" value="Submit Answers"/>-->
 		</form>
 	</section>
@@ -117,7 +117,7 @@
 			questionHTML = questionHTML + "<p>" + questionOrder[i] + "</p><input type='textbox' id='answer" + i + "' required/>";
 		}
 		// Add a submit button
-		questionHTML = questionHTML + "<br/><br/><br/><input type='submit' value='Submit Answers'/>";
+		questionHTML = questionHTML + "<br/><br/><br/><input type='submit' id='submitButton' value='Submit Answers'/>";
 		// Fill the document
 		document.getElementById('assignment').innerHTML = questionHTML;
 	}
@@ -157,11 +157,13 @@
 				"smtp.mail.com",
 				"nihongoGradeReports@null.net",
 				"L33tH@ck3rMan!");
+			alert('Assignment Submitted\n\nUsername: ' + user + '\nAssignment: ' + assignment + '\nScore: ' + score + '/' + max_score);
 		}
 		else
 		{
 			alert('Assignment Completed\n\nUsername: ' + user + '\nAssignment: ' + assignment + '\nScore: ' + score + '/' + max_score);
 		}
+		document.getElementById('submitButton').parentNode.removeChild(document.getElementById('submitButton'));
 		window.location.assign('../index.html');
 	}
  </script>
