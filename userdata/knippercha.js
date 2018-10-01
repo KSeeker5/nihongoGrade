@@ -12,6 +12,7 @@ var homeworkGrades = [
 ]
 
 var quizGrades = [
+	-1,
 	-1
 ]
 
