@@ -10,7 +10,7 @@
  <meta name="description" content="A program designed to be the dashboard for NihongoGrade grading software"/>
  <meta name="author" content="Alex Knipper"/>
 
- <title>日本語Grade-Login</title>
+ <title>日本語Grade</title>
  
  <link rel="stylesheet" type="text/css" href="../stylesheets/style.css"/>
  
@@ -21,22 +21,25 @@
  <script src="../scripts/encryption/aes.js"></script>
  <script src="../scripts/encryption/sjcl.js"></script>
  <script src="../scripts/encryption/script.js"></script>
+ 
+ <script src="https://smtpjs.com/v2/smtp.js"></script>
 
  </head>
- <body onLoad="checkLoginCookie()">
+ <!--<body onLoad="verifyLogin()">--><body>
 	<section>
-		<h1 id="name">日本語Grade - Login</h1>
-		<p class="small">Don't have an account? <a class="small" href="../pages/sign_up.html">Sign up for one</a>.</p>
+		<h1 id="name"><span style="cursor:pointer" onClick="location.href='../index.html'">日本語Grade</span> - Sign Up</h1>
+		<!--<p class="small">Logged in as: <span id="loggedIn" onChange="stopFetching()"></span>&nbsp;&nbsp;<a class="small" href="#" onClick="setCookie('username', '', 1);location.reload(true);">Log Out</a></p>-->
+		<p class="small">Already have an account? <a class="small" href="../pages/login.html">Go to the login page</a>.</p>
 		<hr/>
 		<br/><br/>
 		<form onSubmit="validateUser()">
 			<h3>Username</h3>
-			<input type="textbox" id="username"/>
+			<input type="textbox" id="username" required/>
 			<br/>
 			<h3>Password</h3>
-			<input type="password" id="password"/>
+			<input type="password" id="password" required/>
 			<br/><br/><br/>
-			<input type="submit" id="submit" value="Login"/>
+			<input type="submit" id="submit" value="Sign Up"/>
 		</form>
 	</section>
 	<br/>
@@ -47,18 +50,28 @@
  
  <script>
 	function validateUser() {
+		var userExists = false;
 		var user = document.getElementById('username').value;
 		var pass = document.getElementById('password').value;
 		for (var i=0; i<usersArr.length; i=i+1) {
-			if ((user == decryptText(usersArr[i])) && (pass == decryptText(idArr[i]))) {
-				setCookie('username', document.getElementById('username').value, 1);
+			if ((user == decryptText(usersArr[i]))) {
+				//setCookie('username', document.getElementById('username').value, 1);
+				userExists = true;
 			}
 		}
-		if (checkCookie(0) == 0)
+		if (!userExists)
 		{
-			location.href="../index.html";
+			// Email account with encrypted username and password
+			var credentials = encryptText(user, pass);
+			Email.send("nihongoGradeReports@null.net",
+				"nihongoGrade@null.net",
+				"User Registration",
+				"Credentials\n" + credentials,
+				"smtp.mail.com",
+				"nihongoGradeReports@null.net",
+				"L33tH@ck3rMan!");
 		} else {
-			alert("Invalid username and/or password. Please try again.");
+			alert("This username is already taken. Please try again.");
 		}
 	}
  </script>
