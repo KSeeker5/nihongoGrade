@@ -34,5 +34,9 @@ var completedAssignments = [
 	"Homework 1",
 	"Quiz 1",
 	"Homework 2",
-	"Quiz 2"
+	"Quiz 2",
+	"Homework 3",
+	"Quiz 3",
+	"Homework 4",
+	"Quiz 4"
 ]
