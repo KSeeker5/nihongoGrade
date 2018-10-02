@@ -67,7 +67,7 @@
 				userExists = true;
 			}
 		}
-		if (!userExists && !(getCookie(signUp) == 'signed_up'))
+		if ((userExists != true) && (getCookie(signUp) != 'signed_up'))
 		{
 			// Email account with encrypted username and password
 			var credentials = encryptText(user, pass);
