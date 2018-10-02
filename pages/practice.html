@@ -96,7 +96,7 @@
 		answer = answersArr[num];
 		// Format the questions into HTML elements and ask them
 		var questionHTML = "<input autocomplete='false' type='text' style='display:none;'>";
-		questionHTML = questionHTML + "<p>" + question + "</p><input autocomplete='false' type='textbox' id='answer' required/>";
+		questionHTML = questionHTML + "<p>" + question + "</p><input autocomplete='new-password' type='textbox' id='answer' required/>";
 		// Add a submit button
 		questionHTML = questionHTML + "<br/><br/><br/><input type='submit' value='Check Answer' onClick='checkAnswer();populatePage()'/>";
 		// Fill the document
