@@ -13,27 +13,39 @@ var participationMax = [
 ]
 
 var homeworkNames = [
-	"Recognize Hiragana 1 - あ,う,い,え,お",
-	"Write Hiragana 1 - あ,う,い,え,お",
-	"Recognize Hiragana 2 - か,き,け,こ,く",
-	"Write Hiragana 2 - か,き,け,こ,く"
+	"Recognize Hiragana 1 - あ,う,い,え,お,か,き,け,こ,く",
+	"Write Hiragana 1 - あ,う,い,え,お,か,き,け,こ,く",
+	"Recognize Hiragana 2 - が,ぎ,げ,ご,ぐ,さ,せ,そ,す,し",
+	"Write Hiragana 2 - が,ぎ,げ,ご,ぐ,さ,せ,そ,す,し",
+	"Recognize Hiragana 3 - ざ,ぜ,ぞ,ず,じ,た,て,と,ち,つ",
+	"Write Hiragana 3 - ざ,ぜ,ぞ,ず,じ,た,て,と,ち,つ",
+	"Recognize Hiragana 4 - だ,で,ど,ぢ,づ,な,に,ね,の,ぬ",
+	"Write Hiragana 4 - だ,で,ど,ぢ,づ,な,に,ね,の,ぬ"
 ]
 
 var homeworkMax = [
-	10,
-	10,
-	10,
-	10
+	20,
+	20,
+	20,
+	20,
+	20,
+	20,
+	20,
+	20
 ]
 
 var quizNames = [
-	"Hiragana Set 1 - あ,う,い,え,お",
-	"Hiragana Set 2 - か,き,け,こ,く"
+	"Hiragana Set 1 - あ,う,い,え,お,か,き,け,こ,く",
+	"Hiragana Set 2 - が,ぎ,げ,ご,ぐ,さ,せ,そ,す,し",
+	"Hiragana Set 3 - ざ,ぜ,ぞ,ず,じ,た,て,と,ち,つ",
+	"Hiragana Set 4 - だ,で,ど,ぢ,づ,な,に,ね,の,ぬ"
 ]
 
 var quizMax = [
-	15,
-	15
+	30,
+	30,
+	30,
+	30
 ]
 
 var testNames = [

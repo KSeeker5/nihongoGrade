@@ -5,15 +5,21 @@ var participationGrades = [
 ]
 
 var homeworkGrades = [
-	10,
-	10,
-	10,
-	10
+	20,
+	20,
+	20,
+	20,
+	20,
+	20,
+	20,
+	20
 ]
 
 var quizGrades = [
-	15,
-	15
+	30,
+	30,
+	30,
+	30
 ]
 
 var testGrades = [

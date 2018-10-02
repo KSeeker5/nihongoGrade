@@ -1,27 +1,47 @@
 var questionsArr = [
-	"What is the hiragana for the romaji 'ka'?",
-	"What is the hiragana for the romaji 'ki'?",
-	"What is the hiragana for the romaji 'ke'?",
-	"What is the hiragana for the romaji 'ko'?",
-	"What is the hiragana for the romaji 'ku'?",
-	"What is the romaji for the hiragana 'か'?",
-	"What is the romaji for the hiragana 'き'?",
-	"What is the romaji for the hiragana 'け'?",
-	"What is the romaji for the hiragana 'こ'?",
-	"What is the romaji for the hiragana 'く'?"
+	"What is the hiragana for the romaji 'ga'?",
+	"What is the hiragana for the romaji 'gi'?",
+	"What is the hiragana for the romaji 'ge'?",
+	"What is the hiragana for the romaji 'go'?",
+	"What is the hiragana for the romaji 'gu'?",
+	"What is the romaji for the hiragana 'が'?",
+	"What is the romaji for the hiragana 'ぎ'?",
+	"What is the romaji for the hiragana 'げ'?",
+	"What is the romaji for the hiragana 'ご'?",
+	"What is the romaji for the hiragana 'ぐ'?",
+	"What is the hiragana for the romaji 'sa'?",
+	"What is the hiragana for the romaji 'se'?",
+	"What is the hiragana for the romaji 'so'?",
+	"What is the hiragana for the romaji 'su'?",
+	"What is the hiragana for the romaji 'shi'?",
+	"What is the romaji for the hiragana 'さ'?",
+	"What is the romaji for the hiragana 'せ'?",
+	"What is the romaji for the hiragana 'そ'?",
+	"What is the romaji for the hiragana 'す'?",
+	"What is the romaji for the hiragana 'し'?"
 ]
 
 var answersArr = [
-	"か",
-	"き",
-	"け",
-	"こ",
-	"く",
-	"ka",
-	"ki",
-	"ke",
-	"ko",
-	"ku"
+	"が",
+	"ぎ",
+	"げ",
+	"ご",
+	"ぐ",
+	"ga",
+	"gi",
+	"ge",
+	"go",
+	"gu",
+	"さ",
+	"せ",
+	"そ",
+	"す",
+	"し",
+	"sa",
+	"se",
+	"so",
+	"su",
+	"shi"
 ]
 
-var max_score = 10;
+var max_score = 20;

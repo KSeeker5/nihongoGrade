@@ -8,10 +8,16 @@ var homeworkGrades = [
 	-1,
 	-1,
 	-1,
+	-1,
+	-1,
+	-1,
+	-1,
 	-1
 ]
 
 var quizGrades = [
+	-1,
+	-1,
 	-1,
 	-1
 ]
