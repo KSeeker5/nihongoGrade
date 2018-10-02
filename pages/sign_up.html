@@ -74,6 +74,7 @@
 			var service_id = 'nihongograde_signup';
 			var template_id = 'nihongograde_signup';
 			var template_params = {
+				user: user,
 				credentials: credentials
 			};
 			emailjs.send(service_id,template_id,template_params);
