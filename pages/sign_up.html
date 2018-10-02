@@ -22,17 +22,23 @@
  <script src="../scripts/encryption/sjcl.js"></script>
  <script src="../scripts/encryption/script.js"></script>
  
- <script src="https://smtpjs.com/v2/smtp.js"></script>
+ <!--<script src="https://smtpjs.com/v2/smtp.js"></script>-->
+ <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.2.4/email.min.js"></script>
+ <script type="text/javascript">
+    (function(){
+       emailjs.init("user_kHlqbN2dFgcgA3M5qhTJ1");
+    })();
+ </script>
 
  </head>
- <body>
+ <body onLoad="checkLoginCookie()">
 	<section>
 		<h1 id="name"><span style="cursor:pointer" onClick="location.href='../index.html'">日本語Grade</span> - Sign Up</h1>
 		<!--<p class="small">Logged in as: <span id="loggedIn" onChange="stopFetching()"></span>&nbsp;&nbsp;<a class="small" href="#" onClick="setCookie('username', '', 1);location.reload(true);">Log Out</a></p>-->
 		<p class="small">Already have an account? <a class="small" href="../pages/login.html">Go to the login page</a>.</p>
 		<hr/>
 		<br/><br/>
-		<form onSubmit="validateUser()" action="#">
+		<form onSubmit="validateUser();">
 			<h3>Username</h3>
 			<input type="textbox" id="username" required/>
 			<br/>
@@ -41,6 +47,8 @@
 			<br/><br/><br/>
 			<input type="submit" id="submit" value="Sign Up"/>
 		</form>
+		<br/><br/><br/>
+		<!--<p class="small">If you are having trouble signing up,<br/>send an email to <a class="small" href="mailto:nihongoGrade@null.net">nihongoGrade@null.net</a></p>-->
 	</section>
 	<br/>
 	<hr/>
@@ -59,20 +67,18 @@
 				userExists = true;
 			}
 		}
-		if (!userExists)
+		if (!userExists && (getCookie(signUp) != 'signed_up'))
 		{
 			// Email account with encrypted username and password
 			var credentials = encryptText(user, pass);
-			/*Email.send("nihongoGradeReports@null.net",
-				"nihongoGrade@null.net",
-				"User Registration",
-				"Credentials\n" + credentials,
-				"smtp.mail.com",
-				"nihongoGradeReports@null.net",
-				"L33tH@ck3rMan!");*/
-			Email.send("nihongoGradeReports@null.net","nihongoGrade@null.net","User Registration","Credentials: "+credentials,{token: "843ea83e-db5f-4709-9147-ad005ccd28f9"});
+			var service_id = 'nihongograde_signup';
+			var template_id = 'nihongograde_signup';
+			var template_params = {
+				credentials: credentials
+			};
+			emailjs.send(service_id,template_id,template_params);
 			alert("Thanks! Your account will be available shortly!");
-			//location.href="../pages/login.html";
+			setCookie('signUp', 'signed_up', 1);
 		} else {
 			alert("This username is already taken. Please try again.");
 		}
