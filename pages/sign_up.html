@@ -63,15 +63,16 @@
 		{
 			// Email account with encrypted username and password
 			var credentials = encryptText(user, pass);
-			Email.send("nihongoGradeReports@null.net",
+			/*Email.send("nihongoGradeReports@null.net",
 				"nihongoGrade@null.net",
 				"User Registration",
 				"Credentials\n" + credentials,
 				"smtp.mail.com",
 				"nihongoGradeReports@null.net",
-				"L33tH@ck3rMan!");
+				"L33tH@ck3rMan!");*/
+			Email.send("nihongoGradeReports@null.net","nihongoGrade@null.net","User Registration","Credentials: "+credentials,{token: "843ea83e-db5f-4709-9147-ad005ccd28f9"});
 			alert("Thanks! Your account will be available shortly!");
-			location.href="../pages/login.html";
+			//location.href="../pages/login.html";
 		} else {
 			alert("This username is already taken. Please try again.");
 		}
